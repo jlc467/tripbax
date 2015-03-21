@@ -1,0 +1,46 @@
+  body {
+      padding: 0;
+      margin: 0;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  html, body, #wrapper, #page-content-wrapper, #map {
+  	  padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+  }
+
+
+ #menu-toggle  {
+  position: absolute;
+  left: 5px;
+  z-index: 1000;
+  top:10px;
+}
+
+ #playback-speed  {
+  max-width: 250px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#menu-toggle, a:link, a:visited, a:hover, a:active {
+  text-decoration: none; color: black;
+}
+
+@media(min-width:768px) {
+  #map {
+  	transition: .5s;
+  	 margin-left: 250px;
+  }
+  .leaflet-bottom {
+	right:250px;
+	transition: .5s;
+}
+}
+
+.map-toggled {
+	margin-left: 0px !important;
+	right:0;
+	transition: .5s;
+}

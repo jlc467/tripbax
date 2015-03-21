@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tripbax</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css'/>
+    <link rel="stylesheet" href="src/simple-sidebar.css"/>
+    <link rel="stylesheet" href="src/style.css"/>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" style="margin-right:50px">
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div id="map">
+                <a href="#menu-toggle" class="btn btn-info" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>              
+            </div>
+        </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script src="dist/bundle.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#map").toggleClass("map-toggled");
+        $(".leaflet-right").toggleClass("map-toggled");
+    });
+    </script>
+</body>
+
+</html>
