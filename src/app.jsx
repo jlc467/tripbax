@@ -4,6 +4,11 @@ var React = require('react')
 var Tracks = require('./tracks.js')
 var Reflux = require('Reflux')
 
+
+
+
+
+
 ////Begin Init Map
 L.mapbox.accessToken = 'pk.eyJ1IjoiamNtdXNlIiwiYSI6ImVqMmlmeTQifQ.Z4cdYoe1Htq-9aEd5Qnjsw';
 var map = L.mapbox.map('map', 'jcmuse.lb4fmb1l', { zoomControl: false }); //load map with tiles
@@ -14,13 +19,14 @@ L.control.zoom({ position: 'bottomright' }).addTo(map); //set position of zoom c
 var tracks = Tracks.tracks; //Available list of geojson tracks
 var trackDir = [
 				{id:1,title:'Tampa 1'},
-				{id:2,title:'Tampa 2'}
+				{id:2,title:'Tampa 2'},
+				{id:3,title:'Tampa 3'}
 				]
 ////////////
 
 ////Begin Control Playback
 var controlPlayback = {
-	speed: 50, //playback speed
+	speed: 150, //playback speed
 	path: null, //path layer
 	marker: null, //marker layer
 	playLoop: null, //setTimeout
@@ -57,7 +63,7 @@ var controlPlayback = {
 						this.activeTrack.geometry.coordinates[this.j][0])
 					);
 						this.playTrack(); //do it again
-					}, this.speed)
+					}, 200-this.speed)
 			}
 			else {
 				this.j = 0;
@@ -188,7 +194,7 @@ var SideBar = React.createClass({
 						Tripbax
 				</li>
 				 <li style={{marginTop: '-25px'}} className="sidebar-slogan">
-					   <small>set playback delay</small>
+					   <small>set playback speed</small>
 				</li>	
 				<li style={{marginTop: '-5px'}}>
 					<input onChange={this.updateSpeed} id="playback-speed" value={this.state.speed} type="range" min="1" max="200" step="5"/>
